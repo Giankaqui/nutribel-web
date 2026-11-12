@@ -1,0 +1,21 @@
+# Páginas HTML: siempre se revalidan para que los cambios se vean al instante.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# CSS y JS llevan ?v= en la etiqueta: sube VERSION en src/sitio.py al cambiarlos.
+/assets/css/*
+  Cache-Control: public, max-age=604800
+/assets/js/*
+  Cache-Control: public, max-age=604800
+
+# Imágenes y fuentes: no cambian sin cambiar de nombre.
+/assets/img/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
